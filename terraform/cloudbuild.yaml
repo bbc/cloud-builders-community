@@ -2,7 +2,7 @@
 # $ gcloud builds submit . --config=cloudbuild.yaml
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=eu.gcr.io/${PROJECT_ID}/terraform', '.']
+  args: ['build', '--tag=eu.gcr.io/${PROJECT_ID}/terraform', './terraform']
 - name: 'eu.gcr.io/${PROJECT_ID}/terraform'
   args: ['version']
 images: ['eu.gcr.io/${PROJECT_ID}/terraform']
