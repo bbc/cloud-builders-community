@@ -13,10 +13,8 @@ RUN apt-get update && \
     rm -f terraform_linux_amd64.zip && \
     curl  -L https://github.com/DeviaVir/terraform-provider-gsuite/releases/download/v0.1.9/terraform-provider-gsuite_0.1.9_linux_amd64.zip \
       > terraform_gsuite_linux_amd64.zip && \
-    mkdir -p ${HOME}/.terraform.d/plugins && \
-    echo "Home directory..." && \
-    echo $HOME && \
-    unzip terraform_gsuite_linux_amd64.zip -d ${HOME}/.terraform.d/plugins/ && \
+    mkdir -p /builder/.terraform.d/plugins && \
+    unzip terraform_gsuite_linux_amd64.zip -d /builder/.terraform.d/plugins/ && \
     rm -f terraform_gsuite_linux_amd64.zip
 
 ENV PATH=/builder/terraform/:$PATH
