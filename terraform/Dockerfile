@@ -10,12 +10,7 @@ RUN apt-get update && \
     echo "${TERRAFORM_VERSION_SHA256SUM} terraform_linux_amd64.zip" > terraform_SHA256SUMS && \
     sha256sum -c terraform_SHA256SUMS --status && \
     unzip terraform_linux_amd64.zip -d /builder/terraform && \
-    rm -f terraform_linux_amd64.zip && \
-    curl  -L https://github.com/DeviaVir/terraform-provider-gsuite/releases/download/v0.1.9/terraform-provider-gsuite_0.1.9_linux_amd64.zip \
-      > terraform_gsuite_linux_amd64.zip && \
-    mkdir -p terraform.d/plugins/linux_amd64 && \
-    unzip terraform_gsuite_linux_amd64.zip -d terraform.d/plugins/linux_amd64/ && \
-    rm -f terraform_gsuite_linux_amd64.zip
+    rm -f terraform_linux_amd64.zip
 
 ENV PATH=/builder/terraform/:$PATH
 COPY entrypoint.bash /builder/entrypoint.bash
